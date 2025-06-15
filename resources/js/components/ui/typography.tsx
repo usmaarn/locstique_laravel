@@ -27,7 +27,7 @@ export function TypographyH4({className, ...props}: React.ComponentProps<"h4">) 
 
 export function TypographyP({className, ...props}: React.ComponentProps<"p">) {
     return (
-      <p className={cn("leading-7", className)} {...props} />
+      <p className={cn("leading-7 [&:not(:first-child)]:mt-6", className)} {...props} />
     )
 }
 

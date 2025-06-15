@@ -3,7 +3,7 @@ import ProductCard from '@/components/product-card';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import Image from '@/components/ui/image';
 import { LinkButton } from '@/components/ui/link';
-import { TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography';
+import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography';
 import AppLayout from '@/layouts/main/app-layout';
 import { Product, type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
@@ -39,8 +39,18 @@ export default function HomePage() {
                 </Card>
             </div>
             <LocstiquePromise />
-            <div className="">
-                
+            <div className="mx-auto max-w-3xl space-y-5 px-5 text-center">
+                <TypographyH1>You Deserve the Best!</TypographyH1>
+                <TypographyP>
+                    We believe every woman <b>deserves to adorn herself</b> most finely, reflecting her individuality and confidence.
+                </TypographyP>
+                <TypographyP>
+                    Our curated collection of women's wear is metculously crafted to offer you <b>the best in style, quality, and expression</b>.
+                    Embrace the luxury you deserve and redefine your wardrobe with Locstiqu
+                </TypographyP>
+                <LinkButton size="lg" href={route('shop')}>
+                    Explore our collection
+                </LinkButton>
             </div>
         </AppLayout>
     );
@@ -120,12 +130,12 @@ function LocstiquePromise() {
 
     return (
         <div className="my-16 bg-zinc-100 px-5 py-10">
-            <ul className="mx-auto grid max-w-6xl grid-cols-4 gap-5">
+            <ul className="mx-auto grid max-w-6xl grid-cols-4">
                 {items.map((item) => (
                     <li key={item.id} className="flex flex-col items-center gap-3 text-center">
-                        <item.icon className="size-16 text-primary" />
+                        <item.icon className="mb-4 size-16 text-primary" />
                         <TypographyH3>{item.title}</TypographyH3>
-                        <TypographyP>{item.description}</TypographyP>
+                        <TypographyP className="mt-0!">{item.description}</TypographyP>
                     </li>
                 ))}
             </ul>
