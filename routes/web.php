@@ -1,17 +1,15 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', [HomeController::class, "home"])->name('home');
 Route::get('/shop', [HomeController::class, "shop"])->name('shop');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
-});
+//Auth Routes
+Route::get("/register", [AuthController::class, "registerPage"])->name("register");
+Route::post("/register", [AuthController::class, "register"])->name("register");
 
-require __DIR__.'/settings.php';
-require __DIR__.'/auth.php';
+Route::get("/login", [AuthController::class, "loginPage"])->name("login");
+Route::post("/login", [AuthController::class, "login"])->name("login");
